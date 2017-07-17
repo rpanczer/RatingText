@@ -178,7 +178,7 @@ def cleartext():
     entry7_5.delete(0, END)
     entry_output.delete(0, END)
 
-program_Label = Label(window, text="Rating Text Generator")
+program_Label = Label(window, text="Rating Text Generator 2.0")
 print_Btn = Button(window, text="Clipboard", fg="white", bg="green", width=10, overrelief=SUNKEN, command=ratingtext)
 clear_Btn = Button(window, text="Erase", fg="red", width=10, overrelief=SUNKEN, command=cleartext)
 
