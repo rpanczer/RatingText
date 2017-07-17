@@ -1,4 +1,5 @@
 from tkinter import *
+import pyperclip
 
 window = Tk()
 window.title('Rating Text Generator')
@@ -10,6 +11,9 @@ def ratingtext():
     ex3 = entry3_0.get()
     ex4 = entry4_0.get()
     ex5 = entry5_0.get()
+    ex6 = entry6_0.get()
+    ex7 = entry7_0.get()
+
     if ex1 != "":
         d11 = entry1_1.get()
         category1 = "~" + ex1 + "<br><b>" + d11 + "<b>"
@@ -25,6 +29,12 @@ def ratingtext():
     if ex5 != "":
         d51 = entry5_1.get()
         category1 = category1 + "<br><br>" + ex5 + "<br><b>" + d51 + "<b>"
+    if ex6 != "":
+        d61 = entry6_1.get()
+        category1 = category1 + "<br><br>" + ex6 + "<br><b>" + d61 + "<b>"
+    if ex7 != "":
+        d71 = entry7_1.get()
+        category1 = category1 + "<br><br>" + ex7 + "<br><b>" + d71 + "<b>"
 
     if ex1 != "":
         d12 = entry1_2.get()
@@ -41,6 +51,12 @@ def ratingtext():
     if ex5 != "":
         d52 = entry5_2.get()
         category2 = category2 + "<br><br>" + ex5 + "<br><b>" + d52 + "<b>"
+    if ex6 != "":
+        d62 = entry6_2.get()
+        category2 = category2 + "<br><br>" + ex6 + "<br><b>" + d62 + "<b>"
+    if ex7 != "":
+        d72 = entry7_2.get()
+        category2 = category2 + "<br><br>" + ex7 + "<br><b>" + d72 + "<b>"
 
     if ex1 != "":
         d13 = entry1_3.get()
@@ -57,6 +73,12 @@ def ratingtext():
     if ex5 != "":
         d53 = entry5_3.get()
         category3 = category3 + "<br><br>" + ex5 + "<br><b>" + d53 + "<b>"
+    if ex6 != "":
+        d63 = entry6_3.get()
+        category3 = category3 + "<br><br>" + ex6 + "<br><b>" + d63 + "<b>"
+    if ex7 != "":
+        d73 = entry7_3.get()
+        category3 = category3 + "<br><br>" + ex7 + "<br><b>" + d73 + "<b>"
 
     if ex1 != "":
         d14 = entry1_4.get()
@@ -73,6 +95,12 @@ def ratingtext():
     if ex5 != "":
         d54 = entry5_4.get()
         category4 = category4 + "<br><br>" + ex5 + "<br><b>" + d54 + "<b>"
+    if ex6 != "":
+        d64 = entry6_4.get()
+        category4 = category4 + "<br><br>" + ex6 + "<br><b>" + d64 + "<b>"
+    if ex7 != "":
+        d74 = entry7_4.get()
+        category4 = category4 + "<br><br>" + ex7 + "<br><b>" + d74 + "<b>"
 
     if ex1 != "":
         d15 = entry1_5.get()
@@ -89,13 +117,21 @@ def ratingtext():
     if ex5 != "":
         d55 = entry5_5.get()
         category5 = category5 + "<br><br>" + ex5 + "<br><b>" + d55 + "<b>"
+    if ex6 != "":
+        d65 = entry6_5.get()
+        category5 = category5 + "<br><br>" + ex6 + "<br><b>" + d65 + "<b>"
+    if ex7 != "":
+        d75 = entry7_5.get()
+        category5 = category5 + "<br><br>" + ex7 + "<br><b>" + d75 + "<b>"
     if ex1 != "":
-        output_var.set("Your ratingTxt has been created. You can now Paste it where needed.")
+        output_var.set("ratingText is in your clipboard. You can now Paste it where needed.")
     else:
         output_var.set("No text entered into 1st category.")
 
-    print("\"ratingTxt\":\"-~NA" + category1 + category2 + category3 + category4 + category5 + "\",")
-    entry_output.insert(0,"\"ratingTxt\":\"-~NA" + category1 + category2 + category3 + category4 + category5 + "\",")
+    print("\"ratingTxt\":\"NA" + category1 + category2 + category3 + category4 + category5 + "\",")
+    clipboard_output = "\"ratingTxt\":\"NA" + category1 + category2 + category3 + category4 + category5 + "\","
+    entry_output.insert(0,"\"ratingTxt\":\"NA" + category1 + category2 + category3 + category4 + category5 + "\",")
+    pyperclip.copy(clipboard_output)
 
 def cleartext():
     entry1_0.delete(0, END)
@@ -128,9 +164,22 @@ def cleartext():
     entry5_3.delete(0, END)
     entry5_4.delete(0, END)
     entry5_5.delete(0, END)
+    entry6_0.delete(0, END)
+    entry6_1.delete(0, END)
+    entry6_2.delete(0, END)
+    entry6_3.delete(0, END)
+    entry6_4.delete(0, END)
+    entry6_5.delete(0, END)
+    entry7_0.delete(0, END)
+    entry7_1.delete(0, END)
+    entry7_2.delete(0, END)
+    entry7_3.delete(0, END)
+    entry7_4.delete(0, END)
+    entry7_5.delete(0, END)
+    entry_output.delete(0, END)
 
 program_Label = Label(window, text="Rating Text Generator")
-print_Btn = Button(window, text="Print", fg="white", bg="green", width=10, overrelief=SUNKEN, command=ratingtext)
+print_Btn = Button(window, text="Clipboard", fg="white", bg="green", width=10, overrelief=SUNKEN, command=ratingtext)
 clear_Btn = Button(window, text="Erase", fg="red", width=10, overrelief=SUNKEN, command=cleartext)
 
 rating0_Label = Label(window, text="Category Name")
@@ -174,6 +223,20 @@ entry5_2 = Entry(window)
 entry5_3 = Entry(window)
 entry5_4 = Entry(window)
 entry5_5 = Entry(window)
+
+entry6_0 = Entry(window)
+entry6_1 = Entry(window)
+entry6_2 = Entry(window)
+entry6_3 = Entry(window)
+entry6_4 = Entry(window)
+entry6_5 = Entry(window)
+
+entry7_0 = Entry(window)
+entry7_1 = Entry(window)
+entry7_2 = Entry(window)
+entry7_3 = Entry(window)
+entry7_4 = Entry(window)
+entry7_5 = Entry(window)
 
 entry_output = Entry(window, width=125)
 
@@ -224,11 +287,25 @@ entry5_3.grid(row=7, column=3)
 entry5_4.grid(row=7, column=4)
 entry5_5.grid(row=7, column=5)
 
+entry6_0.grid(row=8, column=0)
+entry6_1.grid(row=8, column=1)
+entry6_2.grid(row=8, column=2)
+entry6_3.grid(row=8, column=3)
+entry6_4.grid(row=8, column=4)
+entry6_5.grid(row=8, column=5)
+
+entry7_0.grid(row=9, column=0)
+entry7_1.grid(row=9, column=1)
+entry7_2.grid(row=9, column=2)
+entry7_3.grid(row=9, column=3)
+entry7_4.grid(row=9, column=4)
+entry7_5.grid(row=9, column=5)
+
 output_var = StringVar()
 output_var.set("Press 'Print' for an output.")
 output = Label(textvariable=output_var)
-output.grid(row=8, columnspan=6, sticky=W)
+output.grid(row=10, columnspan=6, sticky=W)
 
-entry_output.grid(row=9, column=0, columnspan=6, sticky=W)
+entry_output.grid(row=11, column=0, columnspan=6, sticky=W)
 eval1 = "test"
 window.mainloop()
